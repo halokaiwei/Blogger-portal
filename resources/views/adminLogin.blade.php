@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Admin Login</title>
 	<link href="css/authstyles.css" rel="stylesheet">
 	<style>
 		body {

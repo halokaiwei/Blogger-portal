@@ -1,0 +1,45 @@
+body {
+    font-family: 'Verdana', Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+  
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+header .a_left {
+    float: left;
+    margin-left: 20px;
+}
+  
+header .a_right {
+    float: right;
+    margin: 0 15px;
+}
+  
+header .a_right a {
+    color: blue;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+header .a_right a:hover     {
+    text-decoration: underline;
+}

@@ -6,7 +6,6 @@
     <title>Add Admin</title>
 </head>
 <body> 
-    <!-- this create Admin is for our use, the ori repo dont have this -->
     <h1>Add Admin</h1>
     <form action="/admin/add" method="POST">
         @csrf

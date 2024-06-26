@@ -41,6 +41,11 @@ class PostController extends Controller
         $posts = Post::all(); // Retrieve all posts from the database
         return view('view_posts', compact('posts'));
     }
+    
+    public function viewHome() {
+        $posts = Post::all(); // Retrieve all posts from the database
+        return view('home', compact('posts'));
+    }
 
     public function deletePost($id)
     {

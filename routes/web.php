@@ -33,18 +33,16 @@ Route::view('/admin/login', 'adminLogin')->name('admin-login');
 
 Route::post('/admin/login', [AdminController::class, 'adminLogIn']);
 
-Route::view('/admin/add','createAdmin');  //this is for out use, the ori repo has no this
-Route::post('/admin/add', [AdminController::class,'addAdmin']);   //this is for out use, the ori repo has no this
+Route::view('/admin/add','createAdmin');  
+Route::post('/admin/add', [AdminController::class,'addAdmin']); 
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::view('/home','/home');
+    Route::get('/home',[PostController::class, 'viewHome']);
     Route::get('/profile', [UserController::class,'profile']);
     Route::get('/userLogout',[UserController::class,'logout']);
 });
 
-//Routes accessible by admin and user
 Route::group(['middleware' => ['auth:web,admin']], function() {
-    // Routes accessible to both regular users and admins
     Route::view('/createPost', 'create_post');
     Route::post('/createPost', [PostController::class, 'createPost']);
 });
@@ -59,4 +57,8 @@ Route::group(['middleware' => ['auth:web,admin', 'can:isAdmin']], function(){
     Route::get('/editPost/{id}', [PostController::class, 'editPost']);
     Route::post('/updatePost', [PostController::class, 'updatePost']);
 });
-// Route::get('logout', [LoginController::class,'logout']);
+Route::get('logout', function() {
+    Auth::guard('admin')->logout(); 
+    Auth::logout();
+    return "logout";
+});

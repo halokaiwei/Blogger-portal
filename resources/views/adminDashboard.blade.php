@@ -1,46 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ADMIN PORTAL | Member's Area | Arijit Banerjee</title>
-    <style type="text/css">
-        .a_left {
-            float: left;
-            /* #width:33.33333%; */
-            text-align: left;
-        }
-        .a_right {
-            float: right;
-            width: 66.66666%;
-            text-align: right;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+    }
 
-        table#t1 {
-            border-collapse: collapse;
-        }
+    a {
+        color: blue;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
 
-        th, td {
-            padding: 11px;
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: grey;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    header .a_left {
+        float: left;
+        margin-left: 20px;
+    }
+    
+    header .a_right {
+        float: right;
+        margin: 15px;
+    }
+    
+    header .a_right a {
+        color: blue;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+    }
+
+    header .a_right a:hover     {
+        text-decoration: underline;
+    }
+
+    div {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+
+    div p.a_left {
+        float: left;
+        margin-left: 20px;
+    }
+
+    div p.a_right {
+        float: right;
+        margin-right: 20px;
+    }
+
+    h2 {
+        color: #333;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #ffffff;
+    }
+
+    table th, table td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    table th {
+        background-color: rgb(40, 39, 71);
+        color: #fff;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+        background-color: #ddd;
+    }
+
+    table td form {
+        display: inline-block;
+    }
+
+    table td form input[type="submit"] {
+        padding: 8px 12px;
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    table td form input[type="submit"]:hover {
+        background-color: #d32f2f;
+    }
+
+    @media screen and (max-width: 768px) {
+        table {
+            width: 100%;
         }
+    }
+
     </style>
 </head>
-
 <body>
-<div>
+<header id="menu">
 @if(session()->has('admin'))
     <p class='a_left'>Hi {{ session('admin')->username }}, Welcome</p>
-@endif
     <p class='a_right'>Menu :
         <a href="/createPost">Create New Post</a> |
         <a href="/viewPosts">View Posts</a> |
         <a href="/addUser">Add New User</a> |
         <a href="/adminLogout">Log Out</a>
     </p>
-</div>
-
-<br><br><br><br>
+@else 
+    <p class='a_left'>You're not logged in!</p>
+@endif
+</header>
 
 <br><br>
-<center><font size="5" face="arial"><b>USERS DATA</b></font></center>
+<h2>Users Data</h2>
 
 <br><br>
 <table border="1" align="center">
@@ -71,6 +173,5 @@
         </tr>
     @endforeach
 </table>
-
 </body>
 </html>
